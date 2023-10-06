@@ -5,7 +5,7 @@ import csv
 txt_dir = 'solution\instances1'
 # Output CSV file name
 # Output CSV file name
-output_csv = 'output.csv'
+output_csv = 'instances.csv'
 
 # List to store rows of data
 data_rows = []
