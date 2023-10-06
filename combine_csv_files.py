@@ -17,23 +17,25 @@ def combine_csv_files(file1, file2, field1, field2):
     data2 = read_csv_to_list(file2)
 
     # Create a mapping between the field values
-    mapping = {os.path.splitext(row[field2])[0]: row for row in data2}
+    mapping = {os.path.splitext(row[field2])[0]: row for row in data2 if field2 in row}
 
     # Combine data based on the common field values
     combined_data = []
     for row1 in data1:
-        value1 = os.path.splitext(row1[field1])[0]
-        if value1 in mapping:
-            combined_row = {**row1, **mapping[value1]}
-            combined_data.append(combined_row)
+        if field1 in row1:
+            value1 = os.path.splitext(row1[field1])[0]
+            if value1 in mapping:
+                combined_row = {**row1, **mapping[value1]}
+                combined_data.append(combined_row)
 
     return combined_data
 
 # Define the filenames and field names
-file1 = 'instances.csv'
-file2 = 'modified_solution.csv'
-field1 = 'Filename'  # Field name in file1
-field2 = 'inst_name'  # Field name in file2
+file1 = 'modified_solution.csv'
+file2 = 'instances.csv'
+field1 = 'inst_name'  # Field name in file2
+field2 = 'Filename'  # Field name in file1
+
 
 
 # Combine the CSV files
