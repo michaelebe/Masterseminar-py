@@ -6,12 +6,12 @@ headers = ["host","timestamp","problem_type","inst_name","inst_class","num_nodes
     ,"SRC_added_limMem","numVehicles","routes","cuts","dual_variables"]
 
 # Open the original file in read mode
-with open('solution\solution1.txt', mode='r') as input_file:
+with open('../solution/solution1.txt', mode='r') as input_file:
     # Read the content of the original file
     lines = input_file.readlines()
 
 # Open a new CSV file in write mode to write the content
-with open('output_file.csv', mode='w', newline='') as output_file:
+with open('../output_file.csv', mode='w', newline='') as output_file:
     # Create a CSV writer with a semicolon delimiter
     csv_writer = csv.writer(output_file, delimiter=';')
 

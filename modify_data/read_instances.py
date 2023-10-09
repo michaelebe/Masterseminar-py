@@ -2,7 +2,7 @@ import os
 import csv
 
 # Directory containing your TXT files
-txt_dir = 'solution\instances1'
+txt_dir = '../solution/instances1'
 # Output CSV file name
 # Output CSV file name
 output_csv = 'instances.csv'

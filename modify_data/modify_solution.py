@@ -44,7 +44,7 @@ def extract_sigma_lm_and_memory(dual_variables_str):
     return [(nodes.split(), float(value), int(memory_size), memory.split()) for (nodes, value, memory_size, memory) in sigma_lm_matches]
 
 # Open the original CSV file in read mode
-with open('output_file.csv', mode='r') as input_file:
+with open('../output_file.csv', mode='r') as input_file:
     # Create a DictReader using the semicolon delimiter
     csv_reader = csv.DictReader(input_file, delimiter=';')
 
@@ -79,7 +79,7 @@ fieldnames +=  ['dual_variables_nodes', 'dual_variables_cuts(cut, dual value, me
 
 
 # Open a new CSV file in write mode to write the modified content
-with open('modified_solution.csv', mode='w', newline='') as output_file:
+with open('../modified_data/modified_solution.csv', mode='w', newline='') as output_file:
     # Create a DictWriter with the semicolon delimiter
     csv_writer = csv.DictWriter(output_file, fieldnames=fieldnames, delimiter=';')
 
