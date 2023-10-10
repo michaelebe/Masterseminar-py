@@ -54,26 +54,32 @@ for filename in os.listdir(txt_dir):
                      line.strip() and not line.startswith("CUSTOMER") and not line.startswith("CUST NO.")]
 
             # Create a row for the CSV file
+
             row = [filename, len(lines)-5, num_vehicles, capacity]
 
             for i, line in enumerate(lines[1:], start=1):  # Skip the first line
                 customer = line.split()
                 if len(customer) >= 3:
-                    row += customer[1:3]
+                    row += customer[1:]
+                    #for value in customer:
+                        #row += ''.join(filter(str.isdigit, value))
+                        #print(value)
+                    print(customer[1:7])
+                    print(row)
 
             # Append the row to the data_rows list
             data_rows.append(row)
 
 # Create headers for the CSV file
 headers = ['Filename', 'Customer Count', 'Number', 'Capacity']
-headers += ['XCOORD Depot', 'YCOORD Depot']
+headers += ['x_depot', 'y_depot', 'demand_depot', 'ready_depot', 'due_depot', 'service_depot']
 for i in range(1,51):
-    headers += [f'XCOORD Cust {i}']
-    headers += [f'YCOORD Cust {i}']
-    headers += [f'DEMAND Cust {i}']
-    headers += [f'READY TIME Cust {i}']
-    headers += [f'DUE DATE Cust {i}']
-    headers += [f'SERVICE TIME Cust {i}']
+    headers += [f'x_{i}']
+    headers += [f'y_{i}']
+    headers += [f'demand_{i}']
+    headers += [f'ready_{i}']
+    headers += [f'due_{i}']
+    headers += [f'service_{i}']
 
 # Write data to CSV file
 with open(output_csv, 'w', newline='') as csv_file:
