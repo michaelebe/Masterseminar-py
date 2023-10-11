@@ -90,6 +90,9 @@ test_loss, test_accuracy = model.evaluate(X_test, y_test)
 print(f'Test Loss: {test_loss:.4f}')
 print(f'Test Accuracy: {test_accuracy:.4f}' )
 
+plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=True)
+
+
 # Create a list of node numbers from 1 to 25
 nodes = [float(i) for i in range(1, 26)]
 # Generate all combinations of 3 nodes
