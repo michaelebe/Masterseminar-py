@@ -11,6 +11,8 @@ import numpy as np
 from keras.utils import to_categorical
 from tensorflow.keras.utils import plot_model
 import graphviz
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 
 
 
@@ -92,6 +94,30 @@ print(f'Test Accuracy: {test_accuracy:.4f}' )
 
 plot_model(model, to_file='model_bool.png', show_shapes=True, show_layer_names=True)
 
+# Create a Random Forest classifier
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Train the Random Forest model on the training data
+rf_model.fit(X_train, y_train)
+
+# Make predictions on the test data
+y_pred = rf_model.predict(X_test)
+
+# Calculate accuracy on the test data
+rf_accuracy = accuracy_score(y_test, y_pred)
+
+print(f'Random Forest Test Accuracy: {rf_accuracy:.4f}')
+# Assuming you have already trained your Random Forest model (rf_model)
+feature_names = X.columns  # Replace with your actual feature names
+
+# Plot feature importances
+plt.figure(figsize=(10, 6))
+plt.bar(range(len(rf_model.feature_importances_), rf_model.feature_importances_)
+plt.xticks(range(len(feature_names)), feature_names, rotation=90)
+plt.xlabel("Features")
+plt.ylabel("Feature Importance")
+plt.title("Random Forest Feature Importance")
+plt.show()
 
 # Create a list of node numbers from 1 to 25
 nodes = [float(i) for i in range(1, 26)]
