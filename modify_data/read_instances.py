@@ -2,10 +2,10 @@ import os
 import csv
 
 # Directory containing your TXT files
-txt_dir = '../solution/instances1'
+txt_dir = 'data/instances3'
 # Output CSV file name
 # Output CSV file name
-output_csv = 'instances.csv'
+output_csv = 'instances3.csv'
 
 # List to store rows of data
 data_rows = []

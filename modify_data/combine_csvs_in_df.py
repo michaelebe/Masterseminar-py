@@ -6,8 +6,8 @@ import pandas as pd
 #file2_path = '../modified_data/instances.csv'
 
 #win
-file1_path = '../modified_solution.csv'
-file2_path = 'instances.csv'
+file1_path = 'solution3_modified.csv'
+file2_path = 'instances3.csv'
 
 
 
@@ -23,7 +23,7 @@ df_instances = df_instances.rename(columns={'Filename': 'ID'})
 #merged_df = pd.merge(df_solution, df_instances, left_on='ID', right_on='ID', how='outer')
 merged_df = pd.merge(df_solution, df_instances, on='ID')
 
-merged_df.to_csv('merged_data.csv', index=False)
+merged_df.to_csv('merged_data3.csv', index=False)
 
 
 print(df_instances['ID'])

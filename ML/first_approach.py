@@ -7,7 +7,11 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from tensorflow import keras
 from itertools import combinations
+import numpy as np
 from keras.utils import to_categorical
+from tensorflow.keras.utils import plot_model
+import graphviz
+
 
 
 def recursively_convert_to_float(obj):
@@ -159,3 +163,8 @@ test_loss, test_accuracy = model.evaluate(X_test, y_test)
 
 print(f'Test Loss: {test_loss:.4f}')
 print(f'Test Accuracy: {test_accuracy:.4f}' )
+
+# Generate and save the model architecture as an image
+plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=True)
+
+
