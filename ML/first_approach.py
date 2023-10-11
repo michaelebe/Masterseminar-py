@@ -90,7 +90,7 @@ test_loss, test_accuracy = model.evaluate(X_test, y_test)
 print(f'Test Loss: {test_loss:.4f}')
 print(f'Test Accuracy: {test_accuracy:.4f}' )
 
-plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=True)
+plot_model(model, to_file='model_bool.png', show_shapes=True, show_layer_names=True)
 
 
 # Create a list of node numbers from 1 to 25
